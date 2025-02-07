@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+        /* Table styling */
+        .leaderboard-table {
+            width: 100%;
+            max-width: 900px;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+ 
+        .leaderboard-table th, .leaderboard-table td {
+            padding: 15px;
+            text-align: left;
+        }
+ 
+        .leaderboard-table th {
+            background-color: #667eea;
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+ 
+        .leaderboard-table td {
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+ 
+        .leaderboard-table tr:hover {
+            background-color: #f1f1f1;
+        }
+ 
+        .leaderboard-table td:first-child {
+            width: 60%;
+        }
+ 
+        /* Center content on the page */
+        .content {
+            text-align: center;
+            padding: 60px;
+        }
+ 
+        /* Hidden by default */
+        .game-leaderboard {
+            display: none;
+        }
+ 
+        /* Game selection dropdown */
+        .game-select {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="nav-bar">
+    <a href="home.html" class="active">Home</a>
+    <div class="nav-bar-links">
+    <a href="games.html">Games</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="profile.html">Profile</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+    </div>
+     
+    <script>
+        function toggleMenu() {
+            var navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("responsive");
+        }
+    </script>
+ 
+    <!-- Content Area -->
+<div class="content">
+<h1>Leaderboard</h1>
+ 
+        <!-- Game Selection Dropdown -->
+<select id="gameSelect" class="game-select" onchange="showLeaderboard()">
+<option value="game1">Game 1</option>
+<option value="game2">Game 2</option>
+<option value="game3">Game 3</option>
+</select>
+ 
+        <!-- Game 1 Leaderboard -->
+<table id="game1" class="leaderboard-table game-leaderboard">
+<thead>
+<tr>
+<th>Player Name</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player1</td>
+<td>9870</td>
+</tr>
+<tr>
+<td>Player2</td>
+<td>9345</td>
+</tr>
+<tr>
+<td>Player3</td>
+<td>8900</td>
+</tr>
+</tbody>
+</table>
+ 
+        <!-- Game 2 Leaderboard -->
+<table id="game2" class="leaderboard-table game-leaderboard">
+<thead>
+<tr>
+<th>Player Name</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player4</td>
+<td>8600</td>
+</tr>
+<tr>
+<td>Player5</td>
+<td>8400</td>
+</tr>
+<tr>
+<td>Player6</td>
+<td>8100</td>
+</tr>
+</tbody>
+</table>
+ 
+        <!-- Game 3 Leaderboard -->
+<table id="game3" class="leaderboard-table game-leaderboard">
+<thead>
+<tr>
+<th>Player Name</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player7</td>
+<td>7900</td>
+</tr>
+<tr>
+<td>Player8</td>
+<td>7800</td>
+</tr>
+<tr>
+<td>Player9</td>
+<td>7700</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+    <script>
+        // Show the corresponding leaderboard based on the selected game
+        function showLeaderboard() {
+            // Hide all leaderboards
+            document.querySelectorAll('.game-leaderboard').forEach(table => {
+                table.style.display = 'none';
+            });
+ 
+            // Get selected game from the dropdown
+            const selectedGame = document.getElementById('gameSelect').value;
+ 
+            // Show the selected game's leaderboard
+            document.getElementById(selectedGame).style.display = 'table';
+        }
+ 
+        // Initial display of Game 1 leaderboard on page load
+        window.onload = function() {
+            showLeaderboard();
+        }
+</script>
+</body>
+</html>

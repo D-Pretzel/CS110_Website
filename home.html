@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+        /* Styling for the profile page */
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .welcome-message {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .description {
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+        }
+        .credits {
+            margin-top: 60px;
+            font-size: 16px;
+            color: #999;
+        }
+</style>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+  <a href="home.html" class="active">Home</a>
+  <div class="nav-bar-links">
+  <a href="games.html">Games</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="profile.html">Profile</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+  </div>
+  </div>
+   
+  <script>
+      function toggleMenu() {
+          var navBar = document.querySelector(".nav-bar");
+          navBar.classList.toggle("responsive");
+      }
+  </script>
+
+<!-- Profile Content -->
+<div class="profile-container">
+    <!-- Welcome Message -->
+        <h1>Welcome, <span id="profileName">John Doe</span>!</h1>
+    <!-- Website Description -->
+        <p class="description">
+                This website is designed to be an accessible and interactive page for CS 110 students to learn in a fun way.
+                You can compare your progress with classmates, participate in games, and track your performance over time.
+                It's a blend of education and entertainment to make learning computer science more engaging.
+        </p>
+    <!-- Credits Section -->
+    <div class="credits">
+        <p>Website created by the CS 110 instructional team</p>
+        <p>&copy; 2024 CS 110, All Rights Reserved.</p>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+        /* Styling for the profile list */
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+ 
+        .profile-container h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+ 
+        .profile-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+ 
+        .profile-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+ 
+        .profile-list li span {
+            font-weight: bold;
+            color: #555;
+        }
+ 
+        /* Last list item without border */
+        .profile-list li:last-child {
+            border-bottom: none;
+        }
+</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="nav-bar">
+    <a href="home.html" class="active">Home</a>
+    <div class="nav-bar-links">
+    <a href="games.html">Games</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="profile.html">Profile</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+    </div>
+     
+    <script>
+        function toggleMenu() {
+            var navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("responsive");
+        }
+    </script>
+ 
+    <!-- Profile Content -->
+<div class="profile-container">
+<h1>User Profile</h1>
+<ul class="profile-list">
+<li>
+<span>Name:</span>
+<span id="profileName">John Doe</span>
+</li>
+<li>
+<span>Date Created:</span>
+<span id="profileDateCreated">January 1, 2024</span>
+</li>
+<li>
+<span>All Time Points:</span>
+<span id="profilePoints">15200</span>
+</li>
+<li>
+<span>Class Section:</span>
+<span id="profileSection">Section A</span>
+</li>
+</ul>
+<!-- Logout Button -->
+<button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+ 
+    <script>
+        // If using Firebase or other dynamic sources, you can populate the fields dynamically like this:
+        /*
+        // Example of dynamically populating data from Firebase
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                db.collection('users').doc(user.uid).get().then(doc => {
+                    document.getElementById('profileName').textContent = doc.data().name;
+                    document.getElementById('profileDateCreated').textContent = doc.data().dateCreated;
+                    document.getElementById('profilePoints').textContent = doc.data().points;
+                    document.getElementById('profileSection').textContent = doc.data().section;
+                });
+            }
+        });
+        */
+</script>
+</body>
+</html>
