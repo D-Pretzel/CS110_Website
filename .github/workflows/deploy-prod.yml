@@ -14,7 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Add any build steps here.
-      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           firebaseServiceAccount: "${{ secrets.CREDENTIAL_FILE_CONTENT }}"
