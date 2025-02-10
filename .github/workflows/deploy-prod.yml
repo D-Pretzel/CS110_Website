@@ -1,4 +1,4 @@
-name: Deploy to Live Channelo on Merge
+name: Deploy to Live Channel on Merge
 
 on:
   push:
