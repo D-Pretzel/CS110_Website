@@ -1,21 +1,21 @@
-name: Deploy to Live Channel on Merge
+# name: Deploy to Live Channel on Merge
 
-on:
-  push:
-    branches:
-      - main
+# on:
+  # push:
+    # branches:
+      # - main
     # Optionally configure to run only for specific files. For example:
     # paths:
     # - "website/**"
 
-jobs:
-  deploy_live_website:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+# jobs:
+  # deploy_live_website:
+    # runs-on: ubuntu-latest
+    # steps:
+      # - uses: actions/checkout@v4
       # Add any build steps here.
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          firebaseServiceAccount: "${{ secrets.CREDENTIAL_FILE_CONTENT }}"
-          projectId: gameify-cs110
-          channelId: live
+      # - uses: FirebaseExtended/action-hosting-deploy@v0
+        # with:
+          # firebaseServiceAccount: "${{ secrets.CREDENTIAL_FILE_CONTENT }}"
+          # projectId: gameify-cs110
+          # channelId: live
