@@ -1,95 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-        /* Styling for the profile page */
-        .profile-container {
-            max-width: 800px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #000;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+        }
+        
+        #matrixRain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navbar Styles */
+        .nav-bar {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid #00ff00;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .nav-bar a {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+            background-color: rgba(0, 255, 0, 0.1);
+        }
+
+        .nav-bar a.active {
+            background-color: rgba(0, 255, 0, 0.2);
+            border-color: #00ff00;
+        }
+
+        .nav-bar-links {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Content Styles */
+        .content-container {
+            max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #f8f9fa;
+        }
+
+        .cyber-section {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
-            text-align: center;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        .welcome-message {
-            font-size: 22px;
+            padding: 20px;
             margin-bottom: 30px;
-            color: #555;
+            transition: all 0.3s ease;
         }
-        .description {
-            margin-bottom: 40px;
-            font-size: 18px;
-            line-height: 1.5;
-            color: #666;
+
+        .cyber-section:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            transform: translateY(-2px);
         }
-        .credits {
-            margin-top: 60px;
-            font-size: 16px;
-            color: #999;
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
-</style>
+
+        .cyber-link {
+            background-color: rgba(0, 255, 0, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cyber-link:hover {
+            background-color: rgba(0, 255, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        li::before {
+            content: ">";
+            color: #00ff00;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-bar-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-bar.responsive .nav-bar-links {
+                display: flex;
+            }
+
+            .content-container {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <canvas id="matrixRain"></canvas>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Navigation Bar -->
-<div class="nav-bar">
-  <a href="home.html" class="active">Home</a>
-  <div class="nav-bar-links">
-  <a href="games.html">Games</a>
-  <a href="cyber.html">Cyber</a>
-  <a href="leaderboard.html">Leaderboard</a>
-  <a href="profile.html">Profile</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-  </div>
-  </div>
-
-  <script>
-      function toggleMenu() {
-          var navBar = document.querySelector(".nav-bar");
-          navBar.classList.toggle("responsive");
-      }
-  </script>
-
-<!-- Profile Content -->
-<div class="profile-container">
-    <!-- Welcome Message -->
-        <h1>Welcome, <span id="profileName">John Doe</span>!</h1>
-    <!-- Website Description -->
-        <p class="description">
-                This website is designed to be an accessible and interactive page for CS 110 students to learn in a fun way.
-                You can compare your progress with classmates, participate in games, and track your performance over time.
-                It's a blend of education and entertainment to make learning computer science more engaging.
-        </p>
-    <!-- Credits Section -->
-    <div class="credits">
-        <p>Website created by the CS 110 instructional team</p>
-        <p>&copy; 2024 CS 110, All Rights Reserved.</p>
+    <!-- Navbar -->
+    <div class="nav-bar">
+        <a href="home.html" class="active">
+            <i class="fa fa-terminal"></i> Home
+        </a>
+        <div class="nav-bar-links">
+            <a href="games.html">
+                <i class="fa fa-gamepad"></i> Cyber Games
+            </a>
+            <a href="cyber.html">
+                <i class="fa fa-shield"></i> Learn Cyber
+            </a>
+            <a href="profile.html">
+                <i class="fa fa-user"></i> Profile
+            </a>
+        </div>
     </div>
-</div>
 
+    <!-- Content Sections -->
+    <div class="content-container">
+        <h1>CyberSecurity Learning Hub</h1>
 
+        <!-- Information Security Section -->
+        <div class="cyber-section">
+            <h2><i class="fa fa-shield"></i> Information Security Basics</h2>
+            <ul>
+                <li>Confidentiality - Ensuring data is accessible only to authorized users</li>
+                <li>Integrity - Maintaining data accuracy and trustworthiness</li>
+                <li>Availability - Ensuring systems and data are accessible when needed</li>
+                <li>Authentication - Verifying the identity of users and systems</li>
+                <li>Authorization - Determining access rights to resources</li>
+            </ul>
+        </div>
+
+        <!-- Phishing Awareness Section -->
+        <div class="cyber-section">
+            <h2><i class="fa fa-warning"></i> Phishing Awareness</h2>
+            <p>Phishing attacks are cyber threats where attackers impersonate legitimate entities (e.g., banks, companies, or government agencies) to trick individuals into revealing sensitive information like passwords, credit card details, or personal data. These attacks often come through emails, fake websites, phone calls, or text messages.</p>
+            <ul>
+                <li><a href="https://phishingquiz.withgoogle.com/">What is phising?</a></li>
+            </ul>
+            <p>Preventative Measures</p>
+            <ul>
+                <li>Verify Sources: Always check the sender's email address and avoid clicking on suspicious links.</li>
+                <li>Look for Red Flags: Spelling errors, urgent requests, or unfamiliar greetings can indicate phishing attempts.</li>
+                <li>Hover Over Links: Before clicking, hover over links to check if they lead to legitimate websites.</li>
+                <li>Keep Software Updated: Security updates help protect against vulnerabilities.</li>
+                <li>Never Share Sensitive Information: Legitimate organizations won’t ask for passwords or financial details via email or text.</li>
+            </ul>
+        </div>
+
+        <!-- Password Awarness Section -->
+        <div class="cyber-section">
+            <h2><i class="fa fa-warning"></i> Password Awareness & Protection</h2>
+            <p>Passwords are the first line of defense against unauthorized access to your accounts. Strong, unique passwords help protect sensitive information from cyber threats.</p>
+            <p>Things to do:</p>
+            <ul>
+                <li>Passwords are the first line of defense against unauthorized access to your accounts. Strong, unique passwords help protect sensitive information from cyber threats.</li>
+                <li>Enable Multi-Factor Authentication (MFA): Adds an extra layer of security beyond just a password.</li>
+                <li>Use a Password Manager: Helps store and generate secure passwords instead of reusing them.</li>
+                <li>Change Passwords if Compromised: Update credentials immediately if you suspect a breach.</li>
+            </ul>
+            <p>Things to avoid:</p>
+            <ul>
+                <li>Reusing Passwords: A single compromised password can lead to multiple account breaches.</li>
+                <li>Using Personal Information: Avoid birthdays, names, or common words that hackers can easily guess.</li>
+                <li>Sharing Passwords: Keep credentials private and never share them via email or text.</li>
+                <li>Writing Passwords Down: Instead, use a secure password manager to store them safely.</li>
+            </ul>
+        </div>        
+        <!-- Cyber Security Games Section -->
+        <div class="cyber-section">
+            <h2><i class="fa fa-gamepad"></i> Interactive Learning Games</h2>
+            <div class="link-grid">
+                <a href="https://www.hackthebox.com" class="cyber-link" target="_blank">
+                    <i class="fa fa-terminal"></i> Hack The Box
+                </a>
+                <a href="https://tryhackme.com" class="cyber-link" target="_blank">
+                    <i class="fa fa-laptop"></i> Try Hack Me
+                </a>
+                <a href="https://www.cyberstart.com" class="cyber-link" target="_blank">
+                    <i class="fa fa-rocket"></i> CyberStart
+                </a>
+                <a href="https://ctftime.org" class="cyber-link" target="_blank">
+                    <i class="fa fa-flag"></i> CTF Time
+                </a>
+            </div>
+        </div>
+
+        <!-- Educational Resources Section -->
+        <div class="cyber-section">
+            <h2><i class="fa fa-book"></i> Learning Resources</h2>
+            <div class="link-grid">
+                <a href="https://www.cybrary.it" class="cyber-link" target="_blank">
+                    <i class="fa fa-graduation-cap"></i> Cybrary
+                </a>
+                <a href="https://www.sans.org" class="cyber-link" target="_blank">
+                    <i class="fa fa-university"></i> SANS Institute
+                </a>
+                <a href="https://www.kali.org" class="cyber-link" target="_blank">
+                    <i class="fa fa-linux"></i> Kali Linux
+                </a>
+                <a href="https://www.virustotal.com" class="cyber-link" target="_blank">
+                    <i class="fa fa-shield"></i> VirusTotal
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Rain Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('matrixRain');
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const chars = '01アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+            const charArray = chars.split('');
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            const drops = Array(Math.floor(columns)).fill(1);
+
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = charArray[Math.floor(Math.random() * charArray.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            setInterval(draw, 35);
+        });
+    </script>
 </body>
 </html>
