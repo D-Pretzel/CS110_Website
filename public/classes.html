@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .nav-bar {
+            background-color: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background-color: #34495e;
+        }
+
+        .nav-bar a.active {
+            background-color: #3498db;
+        }
+
+        .course-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-title {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .course-tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .department-header {
+            color: #2c3e50;
+            font-size: 32px;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .course-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+    <a href="home.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="cyber.html">Cyber</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="profile.html">Profile</a>
+    <a href="classes.html" class="active">Classes</a>
+</div>
+
+<div class="course-container">
+    <h1 class="department-header">Computer Science Courses</h1>
+    
+    <!-- CompSci 362 -->
+    <div class="course-card">
+        <h2 class="course-title">
+            <i class="fa fa-desktop"></i>
+            CompSci 362: Computer Simulation
+        </h2>
+        <div class="tags">
+            <span class="course-tag">Modeling</span>
+            <span class="course-tag">Simulation</span>
+            <span class="course-tag">System Design</span>
+        </div>
+        <p class="course-description">
+            An introduction to modeling and simulation. Topics include principles of computer simulation methodologies, simulation data analysis and input design, simulation development, analysis of results, and verification of system design, implementation, and assumptions.
+        </p>
+    </div>
+
+    <!-- Add other CompSci courses similarly -->
+
+    <h1 class="department-header">Cyber Science Courses</h1>
+
+    <!-- CyberSci 333 -->
+    <div class="course-card">
+        <h2 class="course-title">
+            <i class="fa fa-shield"></i>
+            CyberSci 333: Cyber Warfare
+        </h2>
+        <div class="tags">
+            <span class="course-tag">Security</span>
+            <span class="course-tag">Exploitation</span>
+            <span class="course-tag">Malware Analysis</span>
+        </div>
+        <p class="course-description">
+            This cyber security course addresses the fundamentals of understanding cyber vulnerabilities via immersive hands-on techniques. Emphasis is on both theory and practical applications behind computer exploitation and cyber warfare methods.
+        </p>
+    </div>
+
+    <!-- Add other CyberSci courses similarly -->
+
+</div>
+
+<script>
+    function toggleMenu() {
+        var navBar = document.querySelector(".nav-bar");
+        navBar.classList.toggle("responsive");
+    }
+</script>
+
+</body>
+</html>
