@@ -4,151 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Reviews</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .nav-bar {
-            background-color: #2c3e50;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background-color: #34495e;
-        }
-
-        .nav-bar a.active {
-            background-color: #3498db;
-        }
-
-        .course-container {
-            max-width: 1200px;
-            margin: 30px auto;
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
-        }
-
-        .course-card {
-            background-color: white;
+            background-color: #f8f9fa;
             border-radius: 10px;
-            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        h1 {
+            font-size: 36px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-message {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .description {
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+        }
+        
+        .credits {
+            margin-top: 60px;
+            font-size: 16px;
+            color: #999;
         }
 
-        .course-card:hover {
-            transform: translateY(-5px);
+        .course-section {
+            text-align: left;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .course-title {
-            color: #2c3e50;
+            color: #333;
             font-size: 24px;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .course-description {
-            color: #555;
+            color: #666;
             line-height: 1.6;
-        }
-
-        .course-tag {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 14px;
-            margin: 5px;
-        }
-
-        .department-header {
-            color: #2c3e50;
-            font-size: 32px;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
-        }
-
-        @media (max-width: 768px) {
-            .course-container {
-                padding: 10px;
-            }
         }
     </style>
 </head>
 <body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Navigation Bar -->
 <div class="nav-bar">
     <a href="home.html">Home</a>
-    <a href="games.html">Games</a>
-    <a href="cyber.html">Cyber</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="profile.html">Profile</a>
-    <a href="classes.html" class="active">Classes</a>
-</div>
+    <div class="nav-bar-links">
+        <a href="games.html">Games</a>
+        <a href="cyber.html">Cyber</a>
+        <a href="classes.html">Classes</a>
 
-<div class="course-container">
-    <h1 class="department-header">Computer Science Courses</h1>
-    
-    <!-- CompSci 362 -->
-    <div class="course-card">
-        <h2 class="course-title">
-            <i class="fa fa-desktop"></i>
-            CompSci 362: Computer Simulation
-        </h2>
-        <div class="tags">
-            <span class="course-tag">Modeling</span>
-            <span class="course-tag">Simulation</span>
-            <span class="course-tag">System Design</span>
-        </div>
-        <p class="course-description">
-            An introduction to modeling and simulation. Topics include principles of computer simulation methodologies, simulation data analysis and input design, simulation development, analysis of results, and verification of system design, implementation, and assumptions.
-        </p>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="profile.html">Profile</a>
     </div>
-
-    <!-- Add other CompSci courses similarly -->
-
-    <h1 class="department-header">Cyber Science Courses</h1>
-
-    <!-- CyberSci 333 -->
-    <div class="course-card">
-        <h2 class="course-title">
-            <i class="fa fa-shield"></i>
-            CyberSci 333: Cyber Warfare
-        </h2>
-        <div class="tags">
-            <span class="course-tag">Security</span>
-            <span class="course-tag">Exploitation</span>
-            <span class="course-tag">Malware Analysis</span>
-        </div>
-        <p class="course-description">
-            This cyber security course addresses the fundamentals of understanding cyber vulnerabilities via immersive hands-on techniques. Emphasis is on both theory and practical applications behind computer exploitation and cyber warfare methods.
-        </p>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-
-    <!-- Add other CyberSci courses similarly -->
-
 </div>
 
 <script>
@@ -157,6 +98,57 @@
         navBar.classList.toggle("responsive");
     }
 </script>
+
+<!-- Course Content -->
+<div class="profile-container">
+    <h1>Course Reviews</h1>
+    
+    <!-- Computer Science Courses -->
+    <div class="course-section">
+        <h2>Computer Science Courses</h2>
+        
+        <div class="course-title">Comp Sci 362: Computer Simulation</div>
+        <p class="course-description">
+            An introduction to modeling and simulation. Topics include principles of computer simulation methodologies, simulation data analysis and input design, simulation development, analysis of results, and verification of system design, implementation, and assumptions.
+        </p>
+
+        <div class="course-title">Comp Sci 471: Artificial Intelligence</div>
+        <p class="course-description">
+            Introduction to major subjects and research areas in artificial intelligence. Topics include: problem-solving techniques, knowledge representation, machine learning, heuristic programming, AI languages, expert systems, natural language understanding, computer vision, pattern recognition, robotics, and societal impacts.
+        </p>
+
+        <div class="course-title">Comp Sci 472: Autonomous Systems Integration</div>
+        <p class="course-description">
+            Students learn the fundamentals of autonomous systems and related technologies (hardware and software) as well as implementations and applications. Students learn how to integrate machine learning with autonomous drones to provide applied solutions to real-world problems.
+        </p>
+    </div>
+
+    <!-- Cyber Science Courses -->
+    <div class="course-section">
+        <h2>Cyber Science Courses</h2>
+
+        <div class="course-title">Cyber Sci 333: Cyber Warfare</div>
+        <p class="course-description">
+            This cyber security course addresses the fundamentals of understanding cyber vulnerabilities via immersive hands-on techniques. Emphasis is on both theory and practical applications behind computer exploitation and cyber warfare methods.
+        </p>
+
+        <div class="course-title">Cyber Sci 334: Cyber Defense</div>
+        <p class="course-description">
+            This second course focuses on the fundamentals of network defense and digital forensics. Topics include security models, vulnerability analysis, defense mechanisms, network design and management, incident response, and digital forensics.
+        </p>
+
+        <div class="course-title">Cyber Sci 431: Cryptography</div>
+        <p class="course-description">
+            Introduces the principles of cryptography and number theory. Topics include: primes, random numbers, modular arithmetic, symmetric encryption, public key encryption, key management, hash functions, digital signatures, and authentication protocols.
+        </p>
+    </div>
+
+    <!-- Credits Section -->
+    <div class="credits">
+        <p>Course catalog maintained by the Computer Science Department</p>
+        <p>&copy; 2024 All Rights Reserved.</p>
+    </div>
+</div>
 
 </body>
 </html>
