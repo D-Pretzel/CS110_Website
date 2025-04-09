@@ -45,6 +45,27 @@
             color: #999;
         }
 </style>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+// Your Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
+    authDomain: "gameify-cs110.firebaseapp.com",
+    projectId: "gameify-cs110",
+    storageBucket: "gameify-cs110.appspot.com",
+    messagingSenderId: "697999671176",
+    appId: "1:697999671176:web:5b0c18766c549b5810443d",
+    measurementId: "G-YWDQ4QYJKK"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+
 </head>
 <body>
 
@@ -77,7 +98,7 @@
 <!-- Profile Content -->
 <div class="profile-container">
     <!-- Welcome Message -->
-        <h1>Welcome, <span id="profileName">John Doe</span>!</h1>
+        <h1>Welcome, <span id="profileEmail">Loading...</span>!</h1>
     <!-- Website Description -->
         <p class="description">
                 This website is designed to be an accessible and interactive page for CS 110 students to learn in a fun way.
@@ -91,6 +112,19 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+            // Not logged in? Redirect to login
+            window.location.href = "./index.html";
+        } else {
+            // Display user's email
+            document.getElementById("profileEmail").textContent = user.email;
+        }
+        });
+    });
+</script>
 
 </body>
 </html>

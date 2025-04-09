@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
+authDomain: "gameify-cs110.firebaseapp.com",
+projectId: "gameify-cs110",
+storageBucket: "gameify-cs110.appspot.com",
+messagingSenderId: "697999671176",
+appId: "1:697999671176:web:5b0c18766c549b5810443d",
+measurementId: "G-YWDQ4QYJKK"
+};
+    firebase.initializeApp(firebaseConfig);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
@@ -12,18 +27,31 @@
 <div class="login-container">
 <div class="login-box">
 <h2>Login</h2>
-<input type="text" id="username" placeholder="Username" required>
+<input type="text" id="username" placeholder="Email" required>
 <input type="password" id="password" placeholder="Password" required>
 <button onclick="login()">Login</button>
+<p>Don’t have an account? <a href="signup.html">Sign up here</a></p>
+</div>
 </div>
 </div>
 
 <script>
     function login() {
-        // For simplicity, assume any login is successful
-        window.location.href = "home.html"; // Redirect to the home page after login
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            console.log("Login successful:", userCredential.user);
+            window.location.href = "/home.html";
+        })
+        .catch((error) => {
+            console.error("Login failed:", error);
+            alert("Login Failed: " + error.message);
+        });
     }
 </script>
+
 
 </body>
 </html>

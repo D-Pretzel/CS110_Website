@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
+    authDomain: "gameify-cs110.firebaseapp.com",
+    projectId: "gameify-cs110",
+    storageBucket: "gameify-cs110.appspot.com",
+    messagingSenderId: "697999671176",
+    appId: "1:697999671176:web:5b0c18766c549b5810443d",
+    measurementId: "G-YWDQ4QYJKK"
+};
+    firebase.initializeApp(firebaseConfig);
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile</title>
@@ -16,32 +31,32 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             font-size: 18px;
         }
- 
+
         .profile-container h1 {
             text-align: center;
             font-size: 28px;
             color: #333;
             margin-bottom: 20px;
         }
- 
+
         .profile-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
- 
+
         .profile-list li {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #ddd;
         }
- 
+
         .profile-list li span {
             font-weight: bold;
             color: #555;
         }
- 
+
         /* Last list item without border */
         .profile-list li:last-child {
             border-bottom: none;
@@ -67,54 +82,51 @@
     <div></div>
     </div>
     </div>
-     
+
     <script>
         function toggleMenu() {
             var navBar = document.querySelector(".nav-bar");
             navBar.classList.toggle("responsive");
         }
     </script>
- 
+
     <!-- Profile Content -->
 <div class="profile-container">
 <h1>User Profile</h1>
 <ul class="profile-list">
-<li>
-<span>Name:</span>
-<span id="profileName">John Doe</span>
-</li>
-<li>
-<span>Date Created:</span>
-<span id="profileDateCreated">January 1, 2024</span>
-</li>
-<li>
-<span>All Time Points:</span>
-<span id="profilePoints">15200</span>
-</li>
-<li>
-<span>Class Section:</span>
-<span id="profileSection">Section A</span>
-</li>
+    <li><span>Name:</span> <span id="profileName">Loading...</span></li>
+    <li><span>Email:</span> <span id="profileEmail">Loading...</span></li>
+    <li><span>UID:</span> <span id="profileUID">Loading...</span></li>
+    <li><span>Date Created:</span> <span id="profileDateCreated">Loading...</span></li>
 </ul>
+
 <!-- Logout Button -->
-<button class="logout-btn" onclick="logout()">Logout</button>
+<button onclick="logout()">Logout</button>
 </div>
- 
-    <script>
-        // If using Firebase or other dynamic sources, you can populate the fields dynamically like this:
-        /*
-        // Example of dynamically populating data from Firebase
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                db.collection('users').doc(user.uid).get().then(doc => {
-                    document.getElementById('profileName').textContent = doc.data().name;
-                    document.getElementById('profileDateCreated').textContent = doc.data().dateCreated;
-                    document.getElementById('profilePoints').textContent = doc.data().points;
-                    document.getElementById('profileSection').textContent = doc.data().section;
-                });
-            }
-        });
-        */
-</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        // Not logged in, redirect to login page
+        window.location.href = "index.html";
+      } else {
+        // Display user info
+        document.getElementById("profileName").textContent = user.displayName || "No name set";
+        document.getElementById("profileEmail").textContent = user.email || "No email available";
+        document.getElementById("profileUID").textContent = user.uid;
+        document.getElementById("profileDateCreated").textContent = user.metadata.creationTime;
+      }
+    });
+});
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "./index.html";
+      });
+    }
+  </script>
+
+
 </body>
 </html>
