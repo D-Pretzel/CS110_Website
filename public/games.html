@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Games</title>
-<link rel="stylesheet" href="styles.css">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
         /* Styles specific to the games page */
         .game-panel {
             display: flex;
@@ -18,31 +18,38 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             width: 100%;
+            text-decoration: none; /* Added for link styling */
+            color: inherit; /* Added for link styling */
+            transition: transform 0.3s ease;
         }
- 
+
+        .game-panel:hover {
+            transform: translateY(-5px);
+        }
+
         .game-panel img {
             width: 100px;
             height: 100px;
             object-fit: cover;
             border-radius: 8px;
         }
- 
+
         .game-panel-content {
             flex: 1;
             margin-left: 20px;
         }
- 
+
         .game-panel-title {
             font-size: 24px;
             color: #333;
             margin-bottom: 5px;
         }
- 
+
         .game-panel-subtitle {
             font-size: 16px;
             color: #555;
         }
- 
+
         /* Center content on the page */
         .content {
             display: flex;
@@ -50,60 +57,62 @@
             align-items: center;
             padding: 60px;
         }
-</style>
+    </style>
 </head>
 <body>
 <!-- Navigation Bar -->
 <div class="nav-bar">
     <a href="home.html" class="active">Home</a>
     <div class="nav-bar-links">
-    <a href="games.html">Games</a>
-    <a href="cyber.html">Cyber</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="profile.html">Profile</a>
+        <a href="games.html">Games</a>
+        <a href="cyber.html">Cyber</a>
+        <a href="classes.html">Classes</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="profile.html">Profile</a>
     </div>
     <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    </div>
-     
-    <script>
-        function toggleMenu() {
-            var navBar = document.querySelector(".nav-bar");
-            navBar.classList.toggle("responsive");
-        }
-    </script>
- 
-    <!-- Content Area -->
+</div>
+
+<script>
+    function toggleMenu() {
+        var navBar = document.querySelector(".nav-bar");
+        navBar.classList.toggle("responsive");
+    }
+</script>
+
+<!-- Content Area -->
 <div class="content">
-<h1>Games</h1>
- 
-        <!-- Game Panels -->
-<div class="game-panel">
-<img src="images/dd.jpg" alt="Game 1 Image">
-<div class="game-panel-content">
-<div class="game-panel-title">Game 1</div>
-<div class="game-panel-subtitle">A thrilling adventure game that will test your skills and reflexes.</div>
+    <h1>Games</h1>
+
+    <!-- Game Panels -->
+    <a href="https://picoctf.org" target="_blank" class="game-panel">
+        <img src="images/dd.jpg" alt="Game 1 Image">
+        <div class="game-panel-content">
+            <div class="game-panel-title">Game 1</div>
+            <div class="game-panel-subtitle">A thrilling adventure game that will test your skills and reflexes.</div>
+        </div>
+    </a>
+
+    <a href="https://www.hackthebox.com" target="_blank" class="game-panel">
+        <img src="images/derpy.jpg" alt="Game 2 Image">
+        <div class="game-panel-content">
+            <div class="game-panel-title">Game 2</div>
+            <div class="game-panel-subtitle">Battle your way to victory in this exciting multiplayer strategy game.</div>
+        </div>
+    </a>
+
+    <a href="https://tryhackme.com" target="_blank" class="game-panel">
+        <img src="images/uh.jpg" alt="Game 3 Image">
+        <div class="game-panel-content">
+            <div class="game-panel-title">Game 3</div>
+            <div class="game-panel-subtitle">Explore a vast open world filled with mysteries and challenges.</div>
+        </div>
+    </a>
 </div>
-</div>
- 
-        <div class="game-panel">
-<img src="images/derpy.jpg" alt="Game 2 Image">
-<div class="game-panel-content">
-<div class="game-panel-title">Game 2</div>
-<div class="game-panel-subtitle">Battle your way to victory in this exciting multiplayer strategy game.</div>
-</div>
-</div>
- 
-        <div class="game-panel">
-<img src="images/uh.jpg" alt="Game 3 Image">
-<div class="game-panel-content">
-<div class="game-panel-title">Game 3</div>
-<div class="game-panel-subtitle">Explore a vast open world filled with mysteries and challenges.</div>
-</div>
-</div>
-</div>
+
 </body>
 </html>
