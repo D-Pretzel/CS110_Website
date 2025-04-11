@@ -14,7 +14,7 @@
   apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
   authDomain: "gameify-cs110.firebaseapp.com",
   projectId: "gameify-cs110",
-  storageBucket: "gameify-cs110.appspot.com", // <-- fix this line
+  storageBucket: "gameify-cs110.appspot.com",
   messagingSenderId: "697999671176",
   appId: "1:697999671176:web:5b0c18766c549b5810443d",
   measurementId: "G-YWDQ4QYJKK"
@@ -51,17 +51,17 @@
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        console.log("✅ Account created");
+        console.log("Account created");
         return userCredential.user.updateProfile({
         displayName: `${fname} ${lname}`
         });
     })
     .then(() => {
-        console.log("✅ Profile updated");
+        console.log("Profile updated");
         window.location.href = './home.html';
     })
     .catch((error) => {
-        console.error("❌ Signup failed:", error.code, error.message);
+        console.error("Signup failed:", error.code, error.message);
         alert("Error: " + error.message);
     });
   }
