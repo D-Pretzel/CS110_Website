@@ -4,18 +4,12 @@
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script>
-const firebaseConfig = {
-apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
-authDomain: "gameify-cs110.firebaseapp.com",
-projectId: "gameify-cs110",
-storageBucket: "gameify-cs110.appspot.com",
-messagingSenderId: "697999671176",
-appId: "1:697999671176:web:5b0c18766c549b5810443d",
-measurementId: "G-YWDQ4QYJKK"
-};
-    firebase.initializeApp(firebaseConfig);
-</script>
+<script src="js/firebase-init.js"></script>
+<script src="js/common.js"></script>
+
+<!-- Login -->
+<script src="js/index.js"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
@@ -34,23 +28,6 @@ measurementId: "G-YWDQ4QYJKK"
 </div>
 </div>
 </div>
-
-<script>
-    function login() {
-        const email = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            console.log("Login successful:", userCredential.user);
-            window.location.href = "/home.html";
-        })
-        .catch((error) => {
-            console.error("Login failed:", error);
-            alert("Login Failed: " + error.message);
-        });
-    }
-</script>
 
 
 </body>

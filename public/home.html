@@ -10,23 +10,11 @@
 <!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="js/firebase-init.js"></script>
 
-<script>
-// Your Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
-    authDomain: "gameify-cs110.firebaseapp.com",
-    projectId: "gameify-cs110",
-    storageBucket: "gameify-cs110.appspot.com",
-    messagingSenderId: "697999671176",
-    appId: "1:697999671176:web:5b0c18766c549b5810443d",
-    measurementId: "G-YWDQ4QYJKK"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-</script>
-
+<!-- Scripts -->
+<script src="js/common.js"></script>
+<script src="js/home.js"></script>
 </head>
 <body>
 
@@ -34,27 +22,20 @@ firebase.initializeApp(firebaseConfig);
 
 <!-- Navigation Bar -->
 <div class="nav-bar">
-  <a href="home.html" class="active">Home</a>
-  <div class="nav-bar-links">
-  <a href="games.html">Games</a>
-  <a href="cyber.html">Cyber</a>
-  <a href="classes.html">Classes</a>
-  <a href="leaderboard.html">Leaderboard</a>
-  <a href="profile.html">Profile</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-  </div>
-  </div>
-
-  <script>
-      function toggleMenu() {
-          var navBar = document.querySelector(".nav-bar");
-          navBar.classList.toggle("responsive");
-      }
-  </script>
+<a href="home.html" class="active">Home</a>
+<div class="nav-bar-links">
+<a href="games.html">Games</a>
+<a href="cyber.html">Cyber</a>
+<a href="classes.html">Classes</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="profile.html">Profile</a>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
 
 <!-- Profile Content -->
 <div class="profile-container">
@@ -72,20 +53,6 @@ firebase.initializeApp(firebaseConfig);
         <p>&copy; 2024 CS 110, All Rights Reserved.</p>
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        firebase.auth().onAuthStateChanged((user) => {
-        if (!user) {
-            // Not logged in? Redirect to login
-            window.location.href = "./index.html";
-        } else {
-            // Display user's email
-            document.getElementById("profileEmail").textContent = user.email;
-        }
-        });
-    });
-</script>
-
 </body>
+
 </html>
