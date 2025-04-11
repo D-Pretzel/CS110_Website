@@ -1,92 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script>
-    const firebaseConfig = {
-    apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
-    authDomain: "gameify-cs110.firebaseapp.com",
-    projectId: "gameify-cs110",
-    storageBucket: "gameify-cs110.appspot.com",
-    messagingSenderId: "697999671176",
-    appId: "1:697999671176:web:5b0c18766c549b5810443d",
-    measurementId: "G-YWDQ4QYJKK"
-};
-    firebase.initializeApp(firebaseConfig);
-</script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/profile.css">
+    <head>
+    <script src="js/common.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/firebase-init.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
-<!-- Navigation Bar -->
-<div class="nav-bar">
-    <a href="home.html" class="active">Home</a>
-    <div class="nav-bar-links">
-    <a href="games.html">Games</a>
-    <a href="cyber.html">Cyber</a>
-    <a href="classes.html" class="active">Classes</a>
-
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="profile.html">Profile</a>
-
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-    </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            var navBar = document.querySelector(".nav-bar");
-            navBar.classList.toggle("responsive");
-        }
-    </script>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
 
     <!-- Profile Content -->
-<div class="profile-container">
-<h1>User Profile</h1>
-<ul class="profile-list">
-    <li><span>Name:</span> <span id="profileName">Loading...</span></li>
-    <li><span>Email:</span> <span id="profileEmail">Loading...</span></li>
-    <li><span>UID:</span> <span id="profileUID">Loading...</span></li>
-    <li><span>Date Created:</span> <span id="profileDateCreated">Loading...</span></li>
-</ul>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <ul class="profile-list">
+            <li><span>Name:</span> <span id="profileName">Loading...</span></li>
+            <li><span>Email:</span> <span id="profileEmail">Loading...</span></li>
+            <li><span>UID:</span> <span id="profileUID">Loading...</span></li>
+            <li><span>Date Created:</span> <span id="profileDateCreated">Loading...</span></li>
+        </ul>
 
-<!-- Logout Button -->
-<button onclick="logout()">Logout</button>
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        // Not logged in, redirect to login page
-        window.location.href = "index.html";
-      } else {
-        // Display user info
-        document.getElementById("profileName").textContent = user.displayName || "No name set";
-        document.getElementById("profileEmail").textContent = user.email || "No email available";
-        document.getElementById("profileUID").textContent = user.uid;
-        document.getElementById("profileDateCreated").textContent = user.metadata.creationTime;
-      }
-    });
-});
-
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "./index.html";
-      });
-    }
-  </script>
-
-
+        <!-- Logout Button -->
+        <button onclick="logout()">Logout</button>
+    </div>
 </body>
+
 </html>

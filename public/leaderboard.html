@@ -1,143 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leaderboard</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/leaderboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <script src="js/common.js"></script>
+    <script src="js/leaderboard.js"></script>
 </head>
 
 <body>
-<!-- Navigation Bar -->
-<div class="nav-bar">
-    <a href="home.html" class="active">Home</a>
-    <div class="nav-bar-links">
-    <a href="games.html">Games</a>
-    <a href="cyber.html">Cyber</a>
-    <a href="classes.html" class="active">Classes</a>
-    <a href="leaderboard.html">Leaderboard</a>
-
-    <a href="profile.html">Profile</a>
-
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-    </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            var navBar = document.querySelector(".nav-bar");
-            navBar.classList.toggle("responsive");
-        }
-    </script>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
 
     <!-- Content Area -->
-<div class="content">
-<h1>Leaderboard</h1>
+    <div class="content">
+        <h1>Leaderboard</h1>
 
         <!-- Game Selection Dropdown -->
-<select id="gameSelect" class="game-select" onchange="showLeaderboard()">
-<option value="game1">Game 1</option>
-<option value="game2">Game 2</option>
-<option value="game3">Game 3</option>
-</select>
+        <select id="gameSelect" class="game-select" onchange="showLeaderboard()">
+            <option value="game1">Game 1</option>
+            <option value="game2">Game 2</option>
+            <option value="game3">Game 3</option>
+        </select>
 
         <!-- Game 1 Leaderboard -->
-<table id="game1" class="leaderboard-table game-leaderboard">
-<thead>
-<tr>
-<th>Player Name</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Player1</td>
-<td>9870</td>
-</tr>
-<tr>
-<td>Player2</td>
-<td>9345</td>
-</tr>
-<tr>
-<td>Player3</td>
-<td>8900</td>
-</tr>
-</tbody>
-</table>
+        <table id="game1" class="leaderboard-table game-leaderboard">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Player1</td>
+                    <td>9870</td>
+                </tr>
+                <tr>
+                    <td>Player2</td>
+                    <td>9345</td>
+                </tr>
+                <tr>
+                    <td>Player3</td>
+                    <td>8900</td>
+                </tr>
+            </tbody>
+        </table>
 
         <!-- Game 2 Leaderboard -->
-<table id="game2" class="leaderboard-table game-leaderboard">
-<thead>
-<tr>
-<th>Player Name</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Player4</td>
-<td>8600</td>
-</tr>
-<tr>
-<td>Player5</td>
-<td>8400</td>
-</tr>
-<tr>
-<td>Player6</td>
-<td>8100</td>
-</tr>
-</tbody>
-</table>
+        <table id="game2" class="leaderboard-table game-leaderboard">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Player4</td>
+                    <td>8600</td>
+                </tr>
+                <tr>
+                    <td>Player5</td>
+                    <td>8400</td>
+                </tr>
+                <tr>
+                    <td>Player6</td>
+                    <td>8100</td>
+                </tr>
+            </tbody>
+        </table>
 
         <!-- Game 3 Leaderboard -->
-<table id="game3" class="leaderboard-table game-leaderboard">
-<thead>
-<tr>
-<th>Player Name</th>
-<th>Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Player7</td>
-<td>7900</td>
-</tr>
-<tr>
-<td>Player8</td>
-<td>7800</td>
-</tr>
-<tr>
-<td>Player9</td>
-<td>7700</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-    <script>
-        // Show the corresponding leaderboard based on the selected game
-        function showLeaderboard() {
-            // Hide all leaderboards
-            document.querySelectorAll('.game-leaderboard').forEach(table => {
-                table.style.display = 'none';
-            });
-
-            // Get selected game from the dropdown
-            const selectedGame = document.getElementById('gameSelect').value;
-
-            // Show the selected game's leaderboard
-            document.getElementById(selectedGame).style.display = 'table';
-        }
-
-        // Initial display of Game 1 leaderboard on page load
-        window.onload = function() {
-            showLeaderboard();
-        }
-</script>
+        <table id="game3" class="leaderboard-table game-leaderboard">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Player7</td>
+                    <td>7900</td>
+                </tr>
+                <tr>
+                    <td>Player8</td>
+                    <td>7800</td>
+                </tr>
+                <tr>
+                    <td>Player9</td>
+                    <td>7700</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>

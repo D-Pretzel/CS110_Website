@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,104 +8,99 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/classes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/common.js"></script>
 </head>
+
 <body>
-<!-- Navigation Bar -->
-<div class="nav-bar">
-    <a href="home.html">Home</a>
-    <div class="nav-bar-links">
-        <a href="games.html">Games</a>
-        <a href="cyber.html">Cyber</a>
-        <a href="classes.html">Classes</a>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
 
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="profile.html">Profile</a>
+    <!-- Course Content -->
+    <div class="profile-container">
+        <h1>Course Reviews</h1>
+
+        <!-- Computer Science Courses -->
+        <div class="course-section">
+            <h2>Computer Science Courses</h2>
+
+            <div class="course-title">Comp Sci 362: Computer Simulation</div>
+            <p class="course-description">
+                An introduction to modeling and simulation. Topics include principles of computer simulation
+                methodologies, simulation data analysis and input design, simulation development, analysis of results,
+                and verification of system design, implementation, and assumptions.
+            </p>
+
+            <div class="course-title">Comp Sci 471: Artificial Intelligence</div>
+            <p class="course-description">
+                Introduction to major subjects and research areas in artificial intelligence. Topics include:
+                problem-solving techniques, knowledge representation, machine learning, heuristic programming, AI
+                languages, expert systems, natural language understanding, computer vision, pattern recognition,
+                robotics, and societal impacts.
+            </p>
+
+            <div class="course-title">Comp Sci 472: Autonomous Systems Integration</div>
+            <p class="course-description">
+                Students learn the fundamentals of autonomous systems and related technologies (hardware and software)
+                as well as implementations and applications. Students learn how to integrate machine learning with
+                autonomous drones to provide applied solutions to real-world problems.
+            </p>
+
+            <div class="course-title">Comp Sci 474: Computer Graphics</div>
+            <p class="course-description">
+                Basic concepts of interactive computer graphics
+                including both vector and raster graphics. Topics include mathematics of 2-dimensional and 3-
+                dimensional geometric transformations, interactive techniques, graphics hardware architectures,
+                graphic algorithms, and realism in computer-generated images. The course includes several computer
+                projects.
+
+            </p>
+
+            <div class="course-title">Comp Sci 483: Operating Systems</div>
+            <p class="course-description">
+                Examines the design and implementation of programs
+                that manage hardware resources and provide abstract interfaces for hardware control. Topics
+                include resource allocation, synchronization primitives, virtual memory, information protection,
+                performance measurement, I/O sub-subsystems, and distributed computing.
+
+            </p>
+
+
+        </div>
+
+        <!-- Cyber Science Courses -->
+        <div class="course-section">
+            <h2>Cyber Science Courses</h2>
+
+            <div class="course-title">Cyber Sci 333: Cyber Warfare</div>
+            <p class="course-description">
+                This cyber security course addresses the fundamentals of understanding cyber vulnerabilities via
+                immersive hands-on techniques. Emphasis is on both theory and practical applications behind computer
+                exploitation and cyber warfare methods.
+            </p>
+
+            <div class="course-title">Cyber Sci 334: Cyber Defense</div>
+            <p class="course-description">
+                This second course focuses on the fundamentals of network defense and digital forensics. Topics include
+                security models, vulnerability analysis, defense mechanisms, network design and management, incident
+                response, and digital forensics.
+            </p>
+
+            <div class="course-title">Cyber Sci 431: Cryptography</div>
+            <p class="course-description">
+                Introduces the principles of cryptography and number theory. Topics include: primes, random numbers,
+                modular arithmetic, symmetric encryption, public key encryption, key management, hash functions, digital
+                signatures, and authentication protocols.
+            </p>
+
+        </div>
+
+        <!-- Credits Section -->
+        <div class="credits">
+            <p>Course catalog maintained by the Computer Science Department</p>
+            <p>&copy; 2024 All Rights Reserved.</p>
+        </div>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
-
-<script>
-    function toggleMenu() {
-        var navBar = document.querySelector(".nav-bar");
-        navBar.classList.toggle("responsive");
-    }
-</script>
-
-<!-- Course Content -->
-<div class="profile-container">
-    <h1>Course Reviews</h1>
-
-    <!-- Computer Science Courses -->
-    <div class="course-section">
-        <h2>Computer Science Courses</h2>
-
-        <div class="course-title">Comp Sci 362: Computer Simulation</div>
-        <p class="course-description">
-            An introduction to modeling and simulation. Topics include principles of computer simulation methodologies, simulation data analysis and input design, simulation development, analysis of results, and verification of system design, implementation, and assumptions.
-        </p>
-
-        <div class="course-title">Comp Sci 471: Artificial Intelligence</div>
-        <p class="course-description">
-            Introduction to major subjects and research areas in artificial intelligence. Topics include: problem-solving techniques, knowledge representation, machine learning, heuristic programming, AI languages, expert systems, natural language understanding, computer vision, pattern recognition, robotics, and societal impacts.
-        </p>
-
-        <div class="course-title">Comp Sci 472: Autonomous Systems Integration</div>
-        <p class="course-description">
-            Students learn the fundamentals of autonomous systems and related technologies (hardware and software) as well as implementations and applications. Students learn how to integrate machine learning with autonomous drones to provide applied solutions to real-world problems.
-        </p>
-
-        <div class="course-title">Comp Sci 474: Computer Graphics</div>
-        <p class="course-description">
-            Basic concepts of interactive computer graphics
-including both vector and raster graphics. Topics include mathematics of 2-dimensional and 3-
-dimensional geometric transformations, interactive techniques, graphics hardware architectures,
-graphic algorithms, and realism in computer-generated images. The course includes several computer projects.
-
-        </p>
-
-        <div class="course-title">Comp Sci 483: Operating Systems</div>
-        <p class="course-description">
-            Examines the design and implementation of programs
-            that manage hardware resources and provide abstract interfaces for hardware control. Topics
-            include resource allocation, synchronization primitives, virtual memory, information protection,
-            performance measurement, I/O sub-subsystems, and distributed computing.
-
-        </p>
-
-
-    </div>
-
-    <!-- Cyber Science Courses -->
-    <div class="course-section">
-        <h2>Cyber Science Courses</h2>
-
-        <div class="course-title">Cyber Sci 333: Cyber Warfare</div>
-        <p class="course-description">
-            This cyber security course addresses the fundamentals of understanding cyber vulnerabilities via immersive hands-on techniques. Emphasis is on both theory and practical applications behind computer exploitation and cyber warfare methods.
-        </p>
-
-        <div class="course-title">Cyber Sci 334: Cyber Defense</div>
-        <p class="course-description">
-            This second course focuses on the fundamentals of network defense and digital forensics. Topics include security models, vulnerability analysis, defense mechanisms, network design and management, incident response, and digital forensics.
-        </p>
-
-        <div class="course-title">Cyber Sci 431: Cryptography</div>
-        <p class="course-description">
-            Introduces the principles of cryptography and number theory. Topics include: primes, random numbers, modular arithmetic, symmetric encryption, public key encryption, key management, hash functions, digital signatures, and authentication protocols.
-        </p>
-
-    </div>
-
-    <!-- Credits Section -->
-    <div class="credits">
-        <p>Course catalog maintained by the Computer Science Department</p>
-        <p>&copy; 2024 All Rights Reserved.</p>
-    </div>
-</div>
 
 </body>
+
 </html>

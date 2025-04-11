@@ -1,67 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/games.css">
+    <script src="js/common.js"></script>
+    <script src="js/firebase-init.js"></script>
 
 </head>
+
 <body>
-<!-- Navigation Bar -->
-<div class="nav-bar">
-    <a href="home.html" class="active">Home</a>
-    <div class="nav-bar-links">
-        <a href="games.html">Games</a>
-        <a href="cyber.html">Cyber</a>
-        <a href="classes.html">Classes</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="profile.html">Profile</a>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <h1>Games</h1>
+
+        <!-- Game Panels -->
+        <a href="https://picoctf.org" target="_blank" class="game-panel">
+            <img src="images/dd.jpg" alt="Game 1 Image">
+            <div class="game-panel-content">
+                <div class="game-panel-title">Game 1</div>
+                <div class="game-panel-subtitle">A thrilling adventure game that will test your skills and reflexes.
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.hackthebox.com" target="_blank" class="game-panel">
+            <img src="images/derpy.jpg" alt="Game 2 Image">
+            <div class="game-panel-content">
+                <div class="game-panel-title">Game 2</div>
+                <div class="game-panel-subtitle">Battle your way to victory in this exciting multiplayer strategy game.
+                </div>
+            </div>
+        </a>
+
+        <a href="https://tryhackme.com" target="_blank" class="game-panel">
+            <img src="images/uh.jpg" alt="Game 3 Image">
+            <div class="game-panel-content">
+                <div class="game-panel-title">Game 3</div>
+                <div class="game-panel-subtitle">Explore a vast open world filled with mysteries and challenges.</div>
+            </div>
+        </a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
-
-<script>
-    function toggleMenu() {
-        var navBar = document.querySelector(".nav-bar");
-        navBar.classList.toggle("responsive");
-    }
-</script>
-
-<!-- Content Area -->
-<div class="content">
-    <h1>Games</h1>
-
-    <!-- Game Panels -->
-    <a href="https://picoctf.org" target="_blank" class="game-panel">
-        <img src="images/dd.jpg" alt="Game 1 Image">
-        <div class="game-panel-content">
-            <div class="game-panel-title">Game 1</div>
-            <div class="game-panel-subtitle">A thrilling adventure game that will test your skills and reflexes.</div>
-        </div>
-    </a>
-
-    <a href="https://www.hackthebox.com" target="_blank" class="game-panel">
-        <img src="images/derpy.jpg" alt="Game 2 Image">
-        <div class="game-panel-content">
-            <div class="game-panel-title">Game 2</div>
-            <div class="game-panel-subtitle">Battle your way to victory in this exciting multiplayer strategy game.</div>
-        </div>
-    </a>
-
-    <a href="https://tryhackme.com" target="_blank" class="game-panel">
-        <img src="images/uh.jpg" alt="Game 3 Image">
-        <div class="game-panel-content">
-            <div class="game-panel-title">Game 3</div>
-            <div class="game-panel-subtitle">Explore a vast open world filled with mysteries and challenges.</div>
-        </div>
-    </a>
-</div>
 
 </body>
+
 </html>

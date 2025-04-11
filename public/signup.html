@@ -9,19 +9,9 @@
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-  apiKey: "AIzaSyBsESIRgW2RYqDolL6zOzJE3EL4lCCgsIk",
-  authDomain: "gameify-cs110.firebaseapp.com",
-  projectId: "gameify-cs110",
-  storageBucket: "gameify-cs110.appspot.com",
-  messagingSenderId: "697999671176",
-  appId: "1:697999671176:web:5b0c18766c549b5810443d",
-  measurementId: "G-YWDQ4QYJKK"
-};
-
-    firebase.initializeApp(firebaseConfig);
-</script>
+  <script src="js/common.js"></script>
+  <script src="js/firebase-init.js"></script>
+  <script src="js/signup.js"></script>
 </head>
 <body>
 
@@ -36,36 +26,6 @@
     <p>Already have an account? <a href="index.html">Login here</a></p>
   </div>
 </div>
-
-<script>
-  window.signup = function () {
-    const fname = document.getElementById('fname').value;
-    const lname = document.getElementById('lname').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    if (!email || !password || !fname || !lname) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-        console.log("Account created");
-        return userCredential.user.updateProfile({
-        displayName: `${fname} ${lname}`
-        });
-    })
-    .then(() => {
-        console.log("Profile updated");
-        window.location.href = './home.html';
-    })
-    .catch((error) => {
-        console.error("Signup failed:", error.code, error.message);
-        alert("Error: " + error.message);
-    });
-  }
-</script>
 
 </body>
 </html>

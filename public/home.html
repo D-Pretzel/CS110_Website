@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
 
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="js/firebase-init.js"></script>
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- Scripts -->
-<script src="js/common.js"></script>
-<script src="js/home.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
 </head>
+
+
 <body>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
 
-<!-- Navigation Bar -->
-<div class="nav-bar">
-<a href="home.html" class="active">Home</a>
-<div class="nav-bar-links">
-<a href="games.html">Games</a>
-<a href="cyber.html">Cyber</a>
-<a href="classes.html">Classes</a>
-<a href="leaderboard.html">Leaderboard</a>
-<a href="profile.html">Profile</a>
-</div>
-<div class="hamburger" onclick="toggleMenu()">
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-
-<!-- Profile Content -->
-<div class="profile-container">
-    <!-- Welcome Message -->
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <!-- Welcome Message -->
         <h1>Welcome, <span id="profileEmail">Loading...</span>!</h1>
-    <!-- Website Description -->
+        <!-- Website Description -->
         <p class="description">
-                This website is designed to be an accessible and interactive page for CS 110 students to learn in a fun way.
-                You can compare your progress with classmates, participate in games, and track your performance over time.
-                It's a blend of education and entertainment to make learning computer science more engaging.
+            This website is designed to be an accessible and interactive page for CS 110 students to learn in a fun way.
+            You can compare your progress with classmates, participate in games, and track your performance over time.
+            It's a blend of education and entertainment to make learning computer science more engaging.
         </p>
-    <!-- Credits Section -->
-    <div class="credits">
-        <p>Website created by the CS 110 instructional team</p>
-        <p>&copy; 2024 CS 110, All Rights Reserved.</p>
+        <!-- Credits Section -->
+        <div class="credits">
+            <p>Website created by the CS 110 instructional team</p>
+            <p>&copy; 2024 CS 110, All Rights Reserved.</p>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
